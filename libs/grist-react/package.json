@@ -1,0 +1,43 @@
+{
+  "name": "grist-react",
+  "version": "0.0.1",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "types": "./dist/grist-react.d.ts",
+  "main": "./dist/grist-react.umd.cjs",
+  "module": "./dist/grist-react.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/grist-react.es.js",
+      "require": "./dist/grist-react.umd.cjs",
+      "types": "./dist/grist-react.d.ts"
+    },
+    "./grist-theme.css": "./grist-theme.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "rxjs": "^7.8.1",
+    "grist-plugin-api": "workspace:*",
+    "grain-rpc": "0.1.7",
+    "ts-interface-checker": "1.0.2"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
+    "@vitejs/plugin-react": "^4.0.0",
+    "typescript": "5.0.4",
+    "vite": "^4.3.0",
+    "vite-plugin-dts": "2.3.0"
+  }
+}

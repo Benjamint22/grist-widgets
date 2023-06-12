@@ -1,0 +1,33 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "extends": ["//"],
+  "pipeline": {
+    "download": {
+      "inputs": ["scripts/download.ts", "scripts/utils/**", "tsconfig.json"],
+      "outputs": ["build/**"]
+    },
+    "bundle-definitions": {
+      "dependsOn": ["download"],
+      "inputs": [
+        "scripts/bundle-definitions.ts",
+        "scripts/utils/**",
+        "tsconfig.json",
+        "build/**",
+        "src/index.d.ts"
+      ],
+      "outputs": ["index.d.ts"]
+    },
+    "bundle-cjs": {
+      "dependsOn": ["download"],
+      "inputs": [
+        "scripts/bundle-javascript.ts",
+        "scripts/utils/**",
+        "tsconfig.json",
+        "build/**",
+        "src/index.cjs"
+      ],
+      "outputs": ["index.cjs"]
+    },
+    "build": { "dependsOn": ["bundle-definitions", "bundle-cjs"] }
+  }
+}
